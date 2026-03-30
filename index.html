@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>程塚咲希 Nail | 初心者でも安心の丁寧ネイル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* =====================
+       リセット・基本設定
+    ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink:    #E8CFCF;
+      --beige:   #F5E9E2;
+      --gold:    #C9A96E;
+      --gold-light: #E0C898;
+      --white:   #FFFFFF;
+      --text:    #4A3F3F;
+      --text-light: #7A6A6A;
+      --serif: 'Noto Serif JP', serif;
+      --sans:  'Noto Sans JP', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* =====================
+       ユーティリティ
+    ===================== */
+    .section {
+      padding: 80px 20px;
+    }
+    .section--beige { background: var(--beige); }
+    .section--pink  { background: var(--pink); }
+    .section--white { background: var(--white); }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--serif);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 52px;
+      letter-spacing: 0.05em;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 16px auto 40px;
+    }
+
+    /* =====================
+       ヘッダー（ナビ）
+    ===================== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text);
+    }
+    .logo span {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      display: block;
+      margin-top: 1px;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--pink);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(201,169,110,0.4);
+      transition: all 0.25s;
+    }
+    .header-cta:hover { background: var(--gold); color: var(--white); }
+
+    /* =====================
+       ① ファーストビュー
+    ===================== */
+    #hero {
+      min-height: 100svh;
+      background: linear-gradient(160deg, var(--beige) 0%, var(--pink) 55%, #dfc0c0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,233,226,0.6) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      padding: 5px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      font-family: var(--serif);
+    }
+
+    .hero-img {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 36px;
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, #f9e8e0 0%, #e8c4b8 30%, #d4a8a0 60%, #c09090 100%);
+      box-shadow: 0 20px 60px rgba(180,120,120,0.3);
+      border: 4px solid rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-img::after {
+      content: '✦';
+      font-size: 40px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* 写真差し替え用 */
+    .hero-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .hero-catch {
+      font-family: var(--serif);
+      font-size: clamp(22px, 6vw, 38px);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 18px;
+      letter-spacing: 0.05em;
+    }
+    .hero-catch em {
+      font-style: normal;
+      color: #8B5C5C;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 44px;
+      letter-spacing: 0.06em;
+      line-height: 1.9;
+    }
+
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #E8CFCF 0%, #d4a8a8 100%);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 40px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(200,120,120,0.3);
+      transition: all 0.3s;
+      letter-spacing: 0.06em;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-line:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(200,120,120,0.4);
+      background: linear-gradient(135deg, #d4b0b0 0%, #c09090 100%);
+    }
+
+    .btn-line svg { flex-shrink: 0; }
+
+    .btn-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      z-index: 1;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%   { opacity: 1; transform: scaleY(0) translateY(-20px); transform-origin: top; }
+      50%  { opacity: 1; transform: scaleY(1) translateY(0); }
+      100% { opacity: 0; transform: scaleY(1) translateY(10px); }
+    }
+
+    /* =====================
+       ② 共感セクション
+    ===================== */
+    .concern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .concern-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 2px 16px rgba(180,140,140,0.1);
+      border: 1px solid rgba(232,207,207,0.5);
+    }
+
+    .concern-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .concern-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .concern-bottom {
+      margin-top: 40px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--beige) 100%);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid rgba(201,169,110,0.2);
+    }
+
+    .concern-bottom p {
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .concern-bottom strong {
+      color: #8B5C5C;
+      font-weight: 600;
+    }
+
+    /* =====================
+       ③ 解決提案（理由）
+    ===================== */
+    .reason-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .reason-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .reason-num {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(201,169,110,0.35);
+    }
+
+    .reason-content h3 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .reason-content p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.75;
+    }
+
+    /* =====================
+       ④ 施術例（ギャラリー）
+    ===================== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(180,140,140,0.15);
+      background: var(--white);
+      border: 1px solid rgba(232,207,207,0.4);
+    }
+
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: rgba(255,255,255,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-img-1 { background: linear-gradient(135deg, #f0d8d0 0%, #e0b8b0 50%, #c8a0a0 100%); }
+    .gallery-img-2 { background: linear-gradient(135deg, #f8e8e0 0%, #ecd0c0 50%, #d8b8a8 100%); }
+    .gallery-img-3 { background: linear-gradient(135deg, #e8d8d0 0%, #d8c0b8 50%, #c8a8a0 100%); }
+    .gallery-img-4 { background: linear-gradient(135deg, #f0e0d8 0%, #e0c8be 50%, #cdb8b0 100%); }
+
+    /* 写真差し替え用 */
+    .gallery-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-img::before {
+      content: '💅';
+      font-size: 36px;
+      position: absolute;
+    }
+
+    .gallery-caption {
+      padding: 12px 16px;
+    }
+
+    .gallery-caption h4 {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .gallery-caption p {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* BA（ビフォーアフター）*/
+    .ba-card {
+      margin-top: 32px;
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(180,140,140,0.1);
+      border: 1px solid rgba(232,207,207,0.4);
+    }
+
+    .ba-images {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .ba-img {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: rgba(255,255,255,0.5);
+    }
+    .ba-img.before { background: linear-gradient(135deg, #d8d0cc 0%, #c0b8b4 100%); }
+    .ba-img.after  { background: linear-gradient(135deg, #f0d8d0 0%, #e0b8b0 50%, #c8a0a0 100%); }
+
+    .ba-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .ba-arrow {
+      padding: 0 12px;
+      font-size: 20px;
+      color: var(--gold);
+    }
+
+    .ba-labels {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .ba-label {
+      padding: 8px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      border-top: 1px solid rgba(232,207,207,0.4);
+    }
+    .ba-label.after-label { color: var(--gold); font-weight: 500; }
+    .ba-label-gap { border-top: 1px solid rgba(232,207,207,0.4); }
+
+    .ba-desc {
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+      border-top: 1px solid rgba(232,207,207,0.3);
+    }
+
+    /* =====================
+       ⑤ 口コミ
+    ===================== */
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(180,140,140,0.1);
+      border: 1px solid rgba(232,207,207,0.4);
+      position: relative;
+    }
+
+    .review-card::before {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--pink);
+      position: absolute;
+      top: 12px;
+      left: 20px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 12px;
+      padding-left: 36px;
+    }
+    .review-stars span { color: var(--gold); font-size: 14px; }
+
+    .review-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text);
+      padding-left: 36px;
+      margin-bottom: 14px;
+    }
+
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-left: 36px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(232,207,207,0.4);
+    }
+
+    .review-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink) 0%, #d4a8a0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .review-info {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .review-info strong { display: block; color: var(--text); font-size: 13px; font-weight: 500; }
+
+    .review-tag {
+      margin-left: auto;
+      font-size: 11px;
+      background: var(--beige);
+      color: var(--gold);
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,169,110,0.3);
+    }
+
+    /* =====================
+       ⑥ 料金プラン
+    ===================== */
+    .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 16px rgba(180,140,140,0.08);
+      border: 1px solid rgba(232,207,207,0.4);
+      transition: all 0.25s;
+    }
+    .price-card:hover {
+      box-shadow: 0 6px 24px rgba(180,140,140,0.15);
+      transform: translateY(-2px);
+    }
+
+    .price-card.featured {
+      background: linear-gradient(135deg, var(--pink) 0%, #d4b0b0 100%);
+      border-color: var(--gold);
+      border-width: 2px;
+    }
+
+    .price-card-badge {
+      font-size: 10px;
+      background: var(--gold);
+      color: var(--white);
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .price-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .price-detail {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .price-amount {
+      text-align: right;
+    }
+
+    .price-num {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .price-num span { font-size: 13px; font-weight: 400; }
+
+    .price-discount {
+      font-size: 12px;
+      color: #B05050;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .price-note {
+      margin-top: 24px;
+      background: var(--beige);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.75;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* =====================
+       ⑦ プロフィール
+    ===================== */
+    .profile-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(180,140,140,0.12);
+      border: 1px solid rgba(232,207,207,0.4);
+    }
+
+    .profile-top {
+      background: linear-gradient(135deg, var(--beige) 0%, var(--pink) 100%);
+      padding: 40px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f0d8d0 0%, #e0b8b0 50%, #c8a0a0 100%);
+      border: 4px solid var(--white);
+      box-shadow: 0 8px 24px rgba(180,120,120,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+    .profile-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .profile-name-en {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+
+    .profile-body {
+      padding: 28px 24px 32px;
+    }
+
+    .profile-story {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .profile-story strong {
+      color: #8B5C5C;
+      font-weight: 500;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .profile-tag {
+      font-size: 12px;
+      background: var(--beige);
+      color: var(--text-light);
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,169,110,0.2);
+    }
+
+    /* =====================
+       ⑧ LINE特典
+    ===================== */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .benefit-card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 4px 20px rgba(180,140,140,0.12);
+    }
+
+    .benefit-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .benefit-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .benefit-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* =====================
+       ⑨ クロージングCTA
+    ===================== */
+    #cta {
+      background: linear-gradient(160deg, #d4b0b0 0%, var(--pink) 40%, var(--beige) 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .cta-lead {
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      font-family: var(--serif);
+      margin-bottom: 12px;
+    }
+
+    .cta-title {
+      font-family: var(--serif);
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .cta-sub {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    /* =====================
+       固定LINEボタン
+    ===================== */
+    .fixed-line {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #E8CFCF 0%, #d4a8a8 100%);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 15px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(200,120,120,0.4), 0 0 0 4px rgba(232,207,207,0.3);
+      transition: all 0.3s;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+      animation: floatBtn 3s ease-in-out infinite;
+    }
+    .fixed-line:hover {
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: 0 12px 36px rgba(200,120,120,0.5), 0 0 0 4px rgba(232,207,207,0.4);
+    }
+
+    @keyframes floatBtn {
+      0%, 100% { box-shadow: 0 6px 28px rgba(200,120,120,0.4), 0 0 0 4px rgba(232,207,207,0.3); }
+      50%       { box-shadow: 0 10px 36px rgba(200,120,120,0.5), 0 0 0 6px rgba(232,207,207,0.4); }
+    }
+
+    .fixed-line-note {
+      position: fixed;
+      bottom: 68px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      background: var(--white);
+      color: #B05050;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 2px 12px rgba(180,120,120,0.2);
+      border: 1px solid rgba(232,207,207,0.6);
+      animation: fadeInUp 0.5s ease 0.5s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* =====================
+       フッター
+    ===================== */
+    footer {
+      background: #3A2F2F;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px 96px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+    footer .footer-logo {
+      font-family: var(--serif);
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 8px;
+      letter-spacing: 0.15em;
+    }
+    footer .footer-sub {
+      font-size: 10px;
+      color: rgba(201,169,110,0.7);
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+    }
+
+    /* =====================
+       レスポンシブ
+    ===================== */
+    @media (max-width: 480px) {
+      .concern-grid { grid-template-columns: 1fr; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .fixed-line { font-size: 13px; padding: 14px 28px; }
+      .section { padding: 60px 20px; }
+      .hero-img { width: 180px; height: 180px; }
+    }
+
+    @media (min-width: 600px) {
+      .review-list { display: grid; grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* =====================
+       アニメーション（スクロール）
+    ===================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- ===========================
+     ヘッダー
+=========================== -->
+<header>
+  <div class="logo">
+    程塚咲希
+    <span>NAIL SALON</span>
+  </div>
+  <a href="#line-cta" class="header-cta">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    LINEで予約
+  </a>
+</header>
+
+
+<!-- ===========================
+     ① ファーストビュー
+=========================== -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">丁寧なカウンセリングで理想を形に</div>
+
+    <!-- 写真差し替え：<img src="nail-main.jpg" alt="程塚咲希のネイル"> を追加 -->
+    <div class="hero-img"></div>
+
+    <h1 class="hero-catch">
+      もうネイルで<em>失敗しない。</em><br>
+      あなたに似合う上品ネイルを。
+    </h1>
+    <p class="hero-sub">
+      ネイル初心者でも安心。<br>丁寧なカウンセリングで理想を形に。
+    </p>
+
+    <a href="#line-cta" class="btn-line">
+      <svg width="20" height="20" viewBox="0 0 40 40" fill="white"><path d="M20 3C10.6 3 3 9.5 3 17.5c0 4.8 2.7 9 6.9 11.8L8.1 37l8.3-4.4c1.1.3 2.4.4 3.6.4 9.4 0 17-6.5 17-14.5S29.4 3 20 3z"/></svg>
+      LINEで簡単予約する（初回30%OFF）
+    </a>
+    <p class="btn-note">✦ 登録無料・返信最短当日</p>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+
+<!-- ===========================
+     ② 共感セクション
+=========================== -->
+<section class="section section--white" id="concern">
+  <div class="container">
+    <p class="section-label">Customer Voice</p>
+    <h2 class="section-title">こんなお悩み<br>ありませんか？</h2>
+    <div class="divider"></div>
+
+    <div class="concern-grid">
+      <div class="concern-card fade-in">
+        <div class="concern-icon">😔</div>
+        <p class="concern-text">イメージと違う仕上がりになってしまった</p>
+      </div>
+      <div class="concern-card fade-in fade-in-delay-1">
+        <div class="concern-icon">💔</div>
+        <p class="concern-text">せっかく作ったのにすぐ剥がれてしまう</p>
+      </div>
+      <div class="concern-card fade-in fade-in-delay-2">
+        <div class="concern-icon">🤔</div>
+        <p class="concern-text">どんなデザインが自分に似合うのかわからない</p>
+      </div>
+      <div class="concern-card fade-in fade-in-delay-3">
+        <div class="concern-icon">😰</div>
+        <p class="concern-text">ネイルが初めてで何から始めたらいいか不安</p>
+      </div>
+    </div>
+
+    <div class="concern-bottom fade-in">
+      <p>
+        そのお悩み、<strong>すべて解決できます。</strong><br>
+        初めての方でも、丁寧にサポートします。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ③ 選ばれる理由
+=========================== -->
+<section class="section section--beige" id="reason">
+  <div class="container">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">程塚咲希のネイルが<br>選ばれる理由</h2>
+    <div class="divider"></div>
+
+    <div class="reason-list">
+      <div class="reason-item fade-in">
+        <div class="reason-num">01</div>
+        <div class="reason-content">
+          <h3>丁寧なカウンセリング</h3>
+          <p>施術前に必ずしっかりとカウンセリングを行います。ご要望・お悩み・ライフスタイルをヒアリングし、あなたにとって最適な提案をします。初めての方も「何もわからない」状態から丁寧にご案内します。</p>
+        </div>
+      </div>
+      <div class="reason-item fade-in fade-in-delay-1">
+        <div class="reason-num">02</div>
+        <div class="reason-content">
+          <h3>一人ひとりに似合う提案</h3>
+          <p>肌の色・手の形・お仕事・生活スタイルを考慮した、あなただけのデザイン提案。「おまかせ」でも大丈夫。豊富な経験でベストな仕上がりをご提供します。</p>
+        </div>
+      </div>
+      <div class="reason-item fade-in fade-in-delay-2">
+        <div class="reason-num">03</div>
+        <div class="reason-content">
+          <h3>持ちの良い丁寧な施術</h3>
+          <p>下地処理から丁寧に。「すぐ取れてしまう」「浮いてくる」というお悩みの多くは下処理が原因です。一つひとつの工程を丁寧に行うことで、長持ちするネイルを実現します。</p>
+        </div>
+      </div>
+      <div class="reason-item fade-in fade-in-delay-3">
+        <div class="reason-num">04</div>
+        <div class="reason-content">
+          <h3>シンプル・上品なデザイン特化</h3>
+          <p>派手すぎず、でも地味でもない。どんな場面でも使える上品でシンプルなデザインを得意としています。オフィスや冠婚葬祭など、シーンを選ばないネイルを提案します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ④ 施術例
+=========================== -->
+<section class="section section--white" id="gallery">
+  <div class="container">
+    <p class="section-label">Gallery</p>
+    <h2 class="section-title">施術例</h2>
+    <p class="section-sub">実際の施術をご覧ください</p>
+    <div class="divider"></div>
+
+    <div class="gallery-grid">
+      <!-- 写真差し替え：各 .gallery-img の中に <img src="nail-1.jpg" alt="..."> を追加 -->
+      <div class="gallery-item fade-in">
+        <div class="gallery-img gallery-img-1"></div>
+        <div class="gallery-caption">
+          <h4>シンプルワンカラー</h4>
+          <p>肌馴染みの良いピンクベージュ。どんな服装にも合わせやすい定番スタイル。</p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in fade-in-delay-1">
+        <div class="gallery-img gallery-img-2"></div>
+        <div class="gallery-caption">
+          <h4>上品フレンチネイル</h4>
+          <p>清潔感のあるフレンチ。ゴールドラインでさりげない高級感をプラス。</p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in fade-in-delay-2">
+        <div class="gallery-img gallery-img-3"></div>
+        <div class="gallery-caption">
+          <h4>グラデーションネイル</h4>
+          <p>ナチュラルなグラデーションで、指先を自然に美しく見せます。</p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in fade-in-delay-3">
+        <div class="gallery-img gallery-img-4"></div>
+        <div class="gallery-caption">
+          <h4>繊細ニュアンスネイル</h4>
+          <p>個性的でありながら上品。大人女性に人気のニュアンスデザイン。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ビフォーアフター -->
+    <div class="ba-card fade-in" style="margin-top:40px;">
+      <div class="ba-images">
+        <!-- 写真差し替え：各 .ba-img の中に <img> を追加 -->
+        <div class="ba-img before">Before</div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-img after">After</div>
+      </div>
+      <div class="ba-labels">
+        <div class="ba-label">施術前</div>
+        <div class="ba-label-gap"></div>
+        <div class="ba-label after-label">施術後</div>
+      </div>
+      <p class="ba-desc">
+        「爪が短くてネイルが似合わないと思っていた」というお客様。<br>
+        丁寧な形成と肌馴染みの良いカラー選びで、指先が美しく見える仕上がりに。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ⑤ 口コミ
+=========================== -->
+<section class="section section--beige" id="review">
+  <div class="container">
+    <p class="section-label">Customer Review</p>
+    <h2 class="section-title">お客様の声</h2>
+    <div class="divider"></div>
+
+    <div class="review-list">
+      <div class="review-card fade-in">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">
+          ネイル初心者で不安だったのですが、最初から丁寧にカウンセリングしてくださって安心しました。「どんなデザインがいいかわからない」と伝えたら、私の肌の色に合わせて提案してくれて、仕上がりがとてもきれいでした。
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">👩</div>
+          <div class="review-info">
+            <strong>M.K.さん</strong>
+            20代・会社員
+          </div>
+          <span class="review-tag">初回</span>
+        </div>
+      </div>
+
+      <div class="review-card fade-in fade-in-delay-1">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">
+          他のサロンで何度か失敗した経験があり、不安でした。でもここに来てからは毎回「想像以上！」という仕上がり。2週間以上経っても全然浮いてこないのも驚きです。もうここ以外考えられません。
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">👩</div>
+          <div class="review-info">
+            <strong>Y.T.さん</strong>
+            30代・主婦
+          </div>
+          <span class="review-tag">リピーター</span>
+        </div>
+      </div>
+
+      <div class="review-card fade-in fade-in-delay-2">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">
+          仕事柄あまり派手なネイルができないのですが、そんな悩みも相談したら、シンプルでも上品に見えるデザインを提案してくれました。持ちが良くて、3週間以上きれいな状態が続いています！
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">👩</div>
+          <div class="review-info">
+            <strong>A.S.さん</strong>
+            40代・管理職
+          </div>
+          <span class="review-tag">リピーター</span>
+        </div>
+      </div>
+
+      <div class="review-card fade-in fade-in-delay-3">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">
+          LINEで気軽に相談できるのがとても助かります。「こんなデザインにしたい」と写真を送ったら、私の手の形に合わせたアレンジ案を提案してくれました。また必ず来ます！
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">👩</div>
+          <div class="review-info">
+            <strong>R.N.さん</strong>
+            20代・学生
+          </div>
+          <span class="review-tag">初回</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ⑥ 料金プラン
+=========================== -->
+<section class="section section--white" id="price">
+  <div class="container">
+    <p class="section-label">Price</p>
+    <h2 class="section-title">料金プラン</h2>
+    <p class="section-sub">すべて税込・オフ・ケアを含む</p>
+    <div class="divider"></div>
+
+    <div class="price-list">
+      <div class="price-card fade-in">
+        <div>
+          <p class="price-name">シンプルネイル</p>
+          <p class="price-detail">ワンカラー・フレンチ・グラデーション<br>シンプルで上品な仕上がり</p>
+        </div>
+        <div class="price-amount">
+          <p class="price-num">¥6,500<span>〜</span></p>
+          <p class="price-discount">初回 ¥4,550〜</p>
+        </div>
+      </div>
+
+      <div class="price-card featured fade-in fade-in-delay-1">
+        <div>
+          <p class="price-card-badge">人気 No.1</p>
+          <p class="price-name">デザインネイル</p>
+          <p class="price-detail">ニュアンス・アート・季節デザイン<br>個性と上品さを両立したスタイル</p>
+        </div>
+        <div class="price-amount">
+          <p class="price-num">¥8,500<span>〜</span></p>
+          <p class="price-discount">初回 ¥5,950〜</p>
+        </div>
+      </div>
+
+      <div class="price-card fade-in fade-in-delay-2">
+        <div>
+          <p class="price-name">フルデザイン</p>
+          <p class="price-detail">10本すべてに凝ったデザイン<br>特別な日・記念日・イベントに</p>
+        </div>
+        <div class="price-amount">
+          <p class="price-num">¥10,500<span>〜</span></p>
+          <p class="price-discount">初回 ¥7,350〜</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-note fade-in">
+      ✦ 初回限定30%OFF 適用中<br>
+      ✦ オフ・爪のケア・カウンセリングはすべて料金に含まれます<br>
+      ✦ 詳しくはLINEにてお気軽にお問い合わせください
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ⑦ プロフィール
+=========================== -->
+<section class="section section--beige" id="profile">
+  <div class="container">
+    <p class="section-label">Nail Artist</p>
+    <h2 class="section-title">ネイリスト紹介</h2>
+    <div class="divider"></div>
+
+    <div class="profile-card fade-in">
+      <div class="profile-top">
+        <!-- 写真差し替え：.profile-photo の中に <img src="sakiki.jpg" alt="程塚咲希"> を追加 -->
+        <div class="profile-photo">👩</div>
+        <h3 class="profile-name">程塚　咲希</h3>
+        <p class="profile-name-en">SAKI HODOZUKA</p>
+      </div>
+      <div class="profile-body">
+        <p class="profile-story">
+          「ネイルで自信を持てる女性を増やしたい」<br>
+          そんな想いで活動しています。<br><br>
+          もともと私自身、ネイルが好きで趣味から始めましたが、<br>
+          「イメージと違う」「すぐ取れてしまう」という経験を何度もしてきました。<br><br>
+          その経験があるからこそ、<strong>お客様の不安や悩みに寄り添えると思っています。</strong><br>
+          初心者の方でも遠慮なく「何もわからない」と言ってください。<br>
+          一緒に、あなただけの理想のネイルを見つけましょう。
+        </p>
+        <div class="profile-tags">
+          <span class="profile-tag">丁寧なカウンセリング</span>
+          <span class="profile-tag">初心者歓迎</span>
+          <span class="profile-tag">シンプル・上品が得意</span>
+          <span class="profile-tag">ネイリスト検定取得</span>
+          <span class="profile-tag">個人サロン</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ⑧ LINE登録特典
+=========================== -->
+<section class="section" id="line-cta" style="background: linear-gradient(160deg, var(--pink) 0%, var(--beige) 100%);">
+  <div class="container">
+    <p class="section-label">LINE Benefits</p>
+    <h2 class="section-title">LINE登録で<br>嬉しい特典3つ</h2>
+    <div class="divider"></div>
+
+    <div class="benefit-grid">
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon">🎉</div>
+        <h3 class="benefit-title">初回30%OFF</h3>
+        <p class="benefit-desc">初回施術がお得に。まずは気軽にお試しください。</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-1">
+        <div class="benefit-icon">💅</div>
+        <h3 class="benefit-title">限定デザイン<br>カタログ配布</h3>
+        <p class="benefit-desc">LINE会員限定のデザインカタログをお送りします。</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-2">
+        <div class="benefit-icon">📅</div>
+        <h3 class="benefit-title">優先予約</h3>
+        <p class="benefit-desc">人気の日程もLINE会員さまを優先してご案内します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===========================
+     ⑨ クロージングCTA
+=========================== -->
+<section id="cta">
+  <div class="container">
+    <p class="cta-lead">✦ まずはお気軽に ✦</p>
+    <h2 class="cta-title">
+      まずはLINEで<br>お気軽にご相談ください
+    </h2>
+    <p class="cta-sub">
+      「どんなデザインがいいかわからない」でも大丈夫。<br>
+      あなたに似合うネイルを、一緒に探しましょう。
+    </p>
+    <a href="#" class="btn-line" style="font-size:16px; padding:18px 48px;">
+      <svg width="22" height="22" viewBox="0 0 40 40" fill="white"><path d="M20 3C10.6 3 3 9.5 3 17.5c0 4.8 2.7 9 6.9 11.8L8.1 37l8.3-4.4c1.1.3 2.4.4 3.6.4 9.4 0 17-6.5 17-14.5S29.4 3 20 3z"/></svg>
+      LINEで予約する
+    </a>
+    <p class="btn-note" style="margin-top:16px;">✦ 登録無料・予約は最短翌日〜</p>
+  </div>
+</section>
+
+
+<!-- ===========================
+     フッター
+=========================== -->
+<footer>
+  <p class="footer-logo">程塚咲希 Nail</p>
+  <p class="footer-sub">NAIL SALON</p>
+  <p>© 2024 程塚咲希 Nail. All rights reserved.</p>
+</footer>
+
+
+<!-- ===========================
+     固定LINEボタン
+=========================== -->
+<div class="fixed-line-note">初回30%OFF特典つき</div>
+<a href="#line-cta" class="fixed-line">
+  <svg width="18" height="18" viewBox="0 0 40 40" fill="white"><path d="M20 3C10.6 3 3 9.5 3 17.5c0 4.8 2.7 9 6.9 11.8L8.1 37l8.3-4.4c1.1.3 2.4.4 3.6.4 9.4 0 17-6.5 17-14.5S29.4 3 20 3z"/></svg>
+  LINEで簡単予約する
+</a>
+
+
+<!-- ===========================
+     JS：スクロールアニメーション
+=========================== -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // スクロール時にヘッダーシャドウ
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 40) {
+      header.style.boxShadow = '0 2px 20px rgba(180,120,120,0.15)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
